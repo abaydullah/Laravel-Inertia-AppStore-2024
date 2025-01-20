@@ -10,6 +10,10 @@ const props = defineProps({
         type: String,
         default: '2xl',
     },
+    maxHeight: {
+        type: String,
+        default: '',
+    },
     closeable: {
         type: Boolean,
         default: true,
@@ -64,7 +68,7 @@ const maxWidthClass = computed(() => {
         <Transition leave-active-class="duration-200">
             <div
                 v-show="show"
-                class="fixed inset-0 z-50 overflow-y-auto px-4 py-6 sm:px-0"
+                class="fixed flex inset-0 z-50 overflow-y-auto px-4 py-6 sm:px-0 items-center"
                 scroll-region
             >
                 <Transition
@@ -96,8 +100,8 @@ const maxWidthClass = computed(() => {
                 >
                     <div
                         v-show="show"
-                        class="mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full"
-                        :class="maxWidthClass"
+                        class="mb-6 transform overflow-scroll rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full min-w-[980px]"
+                        :class="maxWidthClass, maxHeight"
                     >
                         <slot v-if="show" />
                     </div>

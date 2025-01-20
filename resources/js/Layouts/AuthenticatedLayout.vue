@@ -22,7 +22,7 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex shrink-0 items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('admin.dashboard')">
                                     <ApplicationLogo
                                         class="block h-9 w-auto fill-current text-gray-800"
                                     />
@@ -34,8 +34,8 @@ const showingNavigationDropdown = ref(false);
                                 class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                             >
                                 <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('admin.dashboard')"
+                                    :active="route().current('admin.dashboard')"
                                 >
                                     Dashboard
                                 </NavLink>
@@ -141,8 +141,8 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
+                            :href="route('admin.dashboard')"
+                            :active="route().current('admin.dashboard')"
                         >
                             Dashboard
                         </ResponsiveNavLink>
@@ -193,17 +193,19 @@ const showingNavigationDropdown = ref(false);
             <main>
                 <div class="py-12 mx-auto sm:px-6 lg:px-8">
                     <div class="flex justify-between w-full gap-5">
-                        <div class="w-3/12">
+                        <div class="w-2/12">
                             <div
                                 class="overflow-hidden bg-white shadow-sm sm:rounded-lg"
                             >
                                 <div class="p-6 text-gray-900">
                                     <nav>
                                         <ul class="divide-y-2">
-                                            <li class="nav-menu-item"><a href="">Dashboard</a></li>
-                                            <li class="nav-menu-item"><a href="">Categories</a></li>
-                                            <li class="nav-menu-item"><a href="">Apps</a></li>
-                                            <li class="nav-menu-item"><a href="">Review</a></li>
+                                            <li class="nav-menu-item" :class="{active : route().current('admin.dashboard')}"><Link :href="route('admin.dashboard')">Dashboard</Link></li>
+                                            <li class="nav-menu-item" :class="{active : route().current('admin.categories.index')}"><Link :href="route('admin.categories.index')">Categories</Link></li>
+                                            <li class="nav-menu-item" :class="{active : route().current('admin.developers.index')}"><Link :href="route('admin.developers.index')">Developers</Link></li>
+                                            <li class="nav-menu-item" :class="{active : route().current('admin.apps.index')}"><Link :href="route('admin.apps.index')">Apps</Link></li>
+                                            <li class="nav-menu-item" :class="{active : route().current('admin.scrape.index')}"><Link :href="route('admin.scrape.index')">Scrape</Link></li>
+                                            <li class="nav-menu-item" :class="{active : route().current('admin.reviews.index')}"><Link :href="route('admin.reviews.index')">Review</Link></li>
                                             <li class="nav-menu-item"><a href="">Settings</a></li>
                                         </ul>
                                     </nav>
@@ -211,7 +213,7 @@ const showingNavigationDropdown = ref(false);
                             </div>
 
                         </div>
-                        <div class="w-9/12">
+                        <div class="w-10/12">
 
                             <slot />
 
